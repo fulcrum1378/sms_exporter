@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="CP">#00A375</color>
+    <color name="CPV">#007755</color>
+    <color name="CPO">@color/CS</color>
+    <color name="CS">#FFF</color>
+    <color name="CSV">#FCFCFC</color>
+    <color name="CSV_2">#F0F0F0</color>
+    <color name="CSV_3">#EEE</color>
+    <color name="CSV_4">#DDD</color>
+    <color name="CSO">@color/CP</color>
+    <color name="CP_WEAK_1">#2200A375</color>
+
+    <!-- GLOBAL -->
+    <color name="TP">#00000000</color>
+    <color name="shadow_1">#55000000</color>
+    <color name="nav_back_1">@color/CP</color>
+    <color name="listBG1">@color/CSV</color>
+    <color name="toolbar">@color/CS</color>
+
+    <!-- Main -->
+    <color name="threadTV">@color/CPV</color>
+
+    <!-- Talk -->
+    <color name="dateTV">#777</color>
+    <color name="timeTV">#888</color>
+    <color name="smsBox">@color/CSV_3</color>
+    <color name="smsBoxHover">@color/CSV_4</color>
+    <color name="mySmsBox">@color/CP</color>
+    <color name="mySmsBoxHover">@color/CPV</color>
+    <color name="smsTV">#555</color>
+    <color name="mySmsTV">@color/CSV_2</color>
+</resources>

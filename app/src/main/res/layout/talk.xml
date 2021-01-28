@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/body"
+    tools:context=".Talk"
+    tools:ignore="MissingConstraints,UnknownId, ContentDescription">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        style="@style/toolbar">
+
+        <ImageView
+            android:id="@+id/tbNav"
+            style="@style/tbNav"
+            android:src="@drawable/nav_back_1" />
+
+        <TextView style="@style/tbTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        style="@style/mainList" />
+
+    <View style="@style/tbShadow" />
+</androidx.constraintlayout.widget.ConstraintLayout>
