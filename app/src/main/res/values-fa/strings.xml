@@ -51,4 +51,5 @@
     <string name="exportToHtml">در فایل اچ تی ام ال</string>
     <string name="exportToPdf">در فایل پی دی اف</string>
     <string name="exportToJson">به فایل جیسون (ناخوانا)</string>
+    <string name="whereExport">پوشه محل استخراج را انتخاب کنید</string>
 </resources>

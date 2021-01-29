@@ -52,8 +52,9 @@ class Main : AppCompatActivity() {
         }
 
         // Permissions
-        if (Fun.checkPerm(smsPerm) && Fun.checkPerm(conPerm)) Collector(this).start()
-        else ActivityCompat.requestPermissions(this, arrayOf(smsPerm, conPerm), reqSmsPerm)
+        if (Fun.checkPerm(smsPerm) && Fun.checkPerm(conPerm) && Fun.checkPerm(extPerm))
+            Collector(this).start()
+        else ActivityCompat.requestPermissions(this, arrayOf(smsPerm, conPerm, extPerm), reqSmsPerm)
 
         // Toolbar
         if (night) b.tbNav.colorFilter = Fun.filter(R.color.CP)
@@ -69,13 +70,14 @@ class Main : AppCompatActivity() {
 
     val smsPerm = Manifest.permission.READ_SMS
     val conPerm = Manifest.permission.READ_CONTACTS
+    val extPerm = Manifest.permission.WRITE_EXTERNAL_STORAGE
     val reqSmsPerm = 666
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String?>, grantResults: IntArray
     ) {
         when (requestCode) {
             reqSmsPerm -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                Collector(this).start()
+                Collector(this).start() else onBackPressed()
         }
     }
 

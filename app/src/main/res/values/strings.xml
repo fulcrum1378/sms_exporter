@@ -51,4 +51,5 @@
     <string name="exportToHtml">To HTML document</string>
     <string name="exportToPdf">To PDF document</string>
     <string name="exportToJson">To JSON file (not human-readable)</string>
+    <string name="whereExport">Where to export?</string>
 </resources>

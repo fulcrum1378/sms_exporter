@@ -3,7 +3,7 @@
     <!-- GLOBAL -->
     <dimen name="tbHeight">75dp</dimen>
     <dimen name="threadTopMar">8dp</dimen>
-    <dimen name="smsTopMar">23dp</dimen>
+    <dimen name="smsTopMar">19dp</dimen>
     <dimen name="listBottomMar">20dp</dimen>
     <dimen name="tbButtonRadius">17dp</dimen>
 
