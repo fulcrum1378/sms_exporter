@@ -11,17 +11,11 @@ data class SMS(
     data class Thread(
         val id: String,
         val address: String,
-        val list: List<SMS>
+        val list: List<SMS>,
+        val lastDate: Long
     ) {
         class Sort : Comparator<Thread> {
-            override fun compare(a: Thread, b: Thread) =
-                lastSMS(b).date!!.compareTo(lastSMS(a).date!!)
-
-            fun lastSMS(th: Thread): SMS {
-                var last = th.list[0]
-                for (i in th.list) if (i.date!! > last.date!!) last = i
-                return last
-            }
+            override fun compare(a: Thread, b: Thread) = b.lastDate.compareTo(a.lastDate)
         }
     }
 
@@ -30,6 +24,12 @@ data class SMS(
             var thread: Thread? = null
             for (t in list) if (t.id == id) thread = t
             return thread
+        }
+
+        fun lastSMS(list: List<SMS>): Long {
+            var last = 0L
+            for (i in list) if (i.date!! > last) last = i.date
+            return last
         }
     }
 

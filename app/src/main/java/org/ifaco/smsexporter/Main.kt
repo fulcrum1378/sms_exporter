@@ -10,6 +10,7 @@ import android.os.Message
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
+import org.ifaco.smsexporter.Fun.Companion.night
 import org.ifaco.smsexporter.Fun.Companion.vish
 import org.ifaco.smsexporter.adap.ThreadAdap
 import org.ifaco.smsexporter.data.Collector
@@ -53,6 +54,9 @@ class Main : AppCompatActivity() {
         // Permissions
         if (Fun.checkPerm(smsPerm) && Fun.checkPerm(conPerm)) Collector(this).start()
         else ActivityCompat.requestPermissions(this, arrayOf(smsPerm, conPerm), reqSmsPerm)
+
+        // Toolbar
+        if (night) b.tbNav.colorFilter = Fun.filter(R.color.CP)
 
         // List
         arrangeList()

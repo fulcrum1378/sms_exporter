@@ -5,8 +5,9 @@
     <dimen name="threadTopMar">8dp</dimen>
     <dimen name="smsTopMar">23dp</dimen>
     <dimen name="listBottomMar">20dp</dimen>
+    <dimen name="tbButtonRadius">17dp</dimen>
 
     <!-- Talk -->
     <dimen name="smsMargin">32dp</dimen>
-    <dimen name="smsBoxRadius">17dp</dimen>
+    <dimen name="smsBoxRadius">@dimen/tbButtonRadius</dimen>
 </resources>

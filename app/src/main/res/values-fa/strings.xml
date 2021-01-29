@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">آرشیوکننده پیامک</string>
+
+    <!-- GLOBAL -->
+    <string-array name="week"><!-- Weeks start with Sunday(1) in Android!-->
+        <item>یکشنبه</item>
+        <item>دوشنبه</item>
+        <item>سه شنبه</item>
+        <item>چهارشنبه</item>
+        <item>پنج شنبه</item>
+        <item>جمعه</item>
+        <item>شنبه</item>
+    </string-array>
+    <string-array name="grMonth">
+        <item>ژانویه</item>
+        <item>فوریه</item>
+        <item>مارس</item>
+        <item>آوریل</item>
+        <item>مه</item>
+        <item>ژوئن</item>
+        <item>ژوئیه</item>
+        <item>آگوست</item>
+        <item>سپتامبر</item>
+        <item>اکتبر</item>
+        <item>نوامبر</item>
+        <item>دسامبر</item>
+    </string-array>
+    <string-array name="shMonth">
+        <item>فروردین</item>
+        <item>اردیبهشت</item>
+        <item>خرداد</item>
+        <item>تیر</item>
+        <item>مرداد</item>
+        <item>شهریور</item>
+        <item>مهر</item>
+        <item>آبان</item>
+        <item>آذر</item>
+        <item>دی</item>
+        <item>بهمن</item>
+        <item>اسفند</item>
+    </string-array>
+
+    <!-- #Other -->
+    <string name="family1">Roboto,sans-serif</string>
+
+    <!-- Talk -->
+    <string name="smsDate">%1$s, %2$d %3$s %4$d</string>
+    <string name="smsTime">%1$d:%2$d</string>
+    <string name="export">استخراج</string>
+    <string name="howExport">شیوه استخراج را انتخاب کنید:</string>
+    <string name="exportToHtml">در فایل اچ تی ام ال</string>
+    <string name="exportToPdf">در فایل پی دی اف</string>
+    <string name="exportToJson">به فایل جیسون (ناخوانا)</string>
+</resources>

@@ -3,11 +3,13 @@
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <solid android:color="@color/CP_WEAK_1" />
+            <corners android:radius="@dimen/tbButtonRadius" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
             <solid android:color="@color/TP" />
+            <corners android:radius="@dimen/tbButtonRadius" />
         </shape>
     </item>
 </selector>

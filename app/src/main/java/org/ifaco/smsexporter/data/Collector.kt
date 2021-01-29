@@ -41,7 +41,10 @@ class Collector(val that: AppCompatActivity) : Thread() {
                 col(it, "address")?.let { num -> map2[key] = num }
                 it.moveToNext()
             }
-            for (m in map1) threads.add(SMS.Thread(m.key, map2[m.key]!!, m.value.toList()))
+            for (m in map1) {
+                val list = m.value.toList()
+                threads.add(SMS.Thread(m.key, map2[m.key]!!, list, SMS.lastSMS(list)))
+            }
             handler.obtainMessage(Main.Work.THREADS.ordinal, threads.toList()).sendToTarget()
             it.close()
         }

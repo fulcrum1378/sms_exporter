@@ -12,8 +12,9 @@
     <color name="CP_WEAK_1">#2200A375</color>
 
     <!-- GLOBAL -->
-    <color name="listBG1">?android:attr/windowBackground</color>
-    <color name="default_contact_1">#EEE</color>
+    <color name="listBG1">@color/CS</color>
+    <color name="listBG2">@color/CSV_2</color>
+    <color name="default_contact_1">#BBB</color>
 
     <!-- Main -->
     <color name="threadTV">@color/CPV</color>

@@ -54,6 +54,15 @@
         <item name="layout_constraintStart_toEndOf">@id/tbNav</item>
     </style>
 
+    <style name="tbAction">
+        <item name="android:layout_width">@dimen/tbHeight</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">21dp</item>
+        <item name="android:src">@drawable/export_1</item>
+        <item name="android:background">@drawable/nav_button_1</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+    </style>
+
     <style name="mainList">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
@@ -67,5 +76,27 @@
         <item name="android:alpha">0.4</item>
         <item name="android:visibility">invisible</item>
         <item name="layout_constraintTop_toBottomOf">@id/toolbar</item>
+    </style>
+
+
+    <!-- Talk -->
+    <style name="exportMethod">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">13sp</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:paddingBottom">13sp</item>
+        <item name="android:background">@drawable/list_bg_2</item>
+    </style>
+
+    <style name="exportMethodTV">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@string/family1</item>
+        <item name="android:textColor">@color/CPV</item>
+        <item name="android:textSize">16sp</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
     </style>
 </resources>

@@ -15,6 +15,12 @@
             android:src="@drawable/nav_back_1" />
 
         <TextView style="@style/tbTitle" />
+
+        <ImageView
+            android:id="@+id/tbAction"
+            style="@style/tbAction"
+            android:tooltipText="@string/export"
+            tools:ignore="UnusedAttribute" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
