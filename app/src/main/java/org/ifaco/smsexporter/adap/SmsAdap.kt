@@ -13,7 +13,7 @@ import org.ifaco.smsexporter.Fun.Companion.calendar
 import org.ifaco.smsexporter.Fun.Companion.color
 import org.ifaco.smsexporter.Fun.Companion.vis
 import org.ifaco.smsexporter.R
-import org.ifaco.smsexporter.SMS
+import org.ifaco.smsexporter.data.SMS
 import org.ifaco.smsexporter.etc.SolarHijri
 import java.util.*
 
@@ -42,12 +42,12 @@ class SmsAdap(val list: List<SMS>) : RecyclerView.Adapter<SmsAdap.MyViewHolder>(
         loLP.apply {
             setMargins(
                 leftMargin, if (i != 0) 0
-                else c.resources.getDimension(R.dimen.listTopMar).toInt(),
+                else c.resources.getDimension(R.dimen.smsTopMar).toInt(),
                 rightMargin, if (i < list.size - 1) 0
                 else c.resources.getDimension(R.dimen.listBottomMar).toInt()
             )
+            h.v.layoutParams = this
         }
-        h.v.layoutParams = loLP
 
         // Box
         box.setBackgroundResource(if (list[i].fromMe) R.drawable.box_self_1 else R.drawable.box_contact_1)

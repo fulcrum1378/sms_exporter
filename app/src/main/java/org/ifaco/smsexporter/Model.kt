@@ -3,10 +3,13 @@ package org.ifaco.smsexporter
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import org.ifaco.smsexporter.data.Contact
+import org.ifaco.smsexporter.data.SMS
 
 class Model : ViewModel() {
     val threads: MutableLiveData<List<SMS.Thread>?> by lazy { MutableLiveData<List<SMS.Thread>?>() }
     val viewThread: MutableLiveData<String?> by lazy { MutableLiveData<String?>() }
+    val contacts: MutableLiveData<List<Contact>?> by lazy { MutableLiveData<List<Contact>?>() }
 
 
     @Suppress("UNCHECKED_CAST")

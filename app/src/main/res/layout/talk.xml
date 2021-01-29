@@ -21,5 +21,7 @@
         android:id="@+id/list"
         style="@style/mainList" />
 
-    <View style="@style/tbShadow" />
+    <View
+        android:id="@+id/tbShadow"
+        style="@style/tbShadow" />
 </androidx.constraintlayout.widget.ConstraintLayout>

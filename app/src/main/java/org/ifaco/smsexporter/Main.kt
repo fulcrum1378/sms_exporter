@@ -10,13 +10,17 @@ import android.os.Message
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
-import org.ifaco.smsexporter.Fun.Companion.c
+import org.ifaco.smsexporter.Fun.Companion.vish
 import org.ifaco.smsexporter.adap.ThreadAdap
+import org.ifaco.smsexporter.data.Collector
+import org.ifaco.smsexporter.data.Contact
+import org.ifaco.smsexporter.data.SMS
 import org.ifaco.smsexporter.databinding.MainBinding
+import java.util.*
 
 class Main : AppCompatActivity() {
     lateinit var b: MainBinding
-    lateinit var model: Model
+    lateinit var m: Model
 
     companion object {
         lateinit var handler: Handler
@@ -26,7 +30,7 @@ class Main : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = MainBinding.inflate(layoutInflater)
-        model = ViewModelProvider(this, Model.Factory()).get("Model", Model::class.java)
+        m = ViewModelProvider(this, Model.Factory()).get("Model", Model::class.java)
         setContentView(b.root)
         Fun.init(this)
 
@@ -36,26 +40,31 @@ class Main : AppCompatActivity() {
             @Suppress("UNCHECKED_CAST")
             override fun handleMessage(msg: Message) {
                 when (msg.what) {
-                    Work.THREADS.ordinal -> model.threads.value = msg.obj as List<SMS.Thread>?
+                    Work.THREADS.ordinal -> m.threads.value = msg.obj as List<SMS.Thread>?
                     Work.VIEW_THREAD.ordinal -> {
-                        model.viewThread.value = msg.obj as String?
+                        m.viewThread.value = msg.obj as String?
                         startActivity(Intent(this@Main, Talk::class.java))
                     }
+                    Work.CONTACTS.ordinal -> m.contacts.value = msg.obj as List<Contact>?
                 }
             }
         }
 
         // Permissions
-        if (ActivityCompat.checkSelfPermission(c, smsPerm) == PackageManager.PERMISSION_GRANTED
-        ) Collector(this).start()
-        else ActivityCompat.requestPermissions(this, arrayOf(smsPerm), reqSmsPerm)
+        if (Fun.checkPerm(smsPerm) && Fun.checkPerm(conPerm)) Collector(this).start()
+        else ActivityCompat.requestPermissions(this, arrayOf(smsPerm, conPerm), reqSmsPerm)
 
         // List
         arrangeList()
-        model.threads.observe(this, { threads -> arrangeList(threads) })
+        m.threads.observe(this, { threads -> arrangeList(threads) })
+        m.contacts.observe(this, { contacts -> arrangeList(contacts = contacts) })
+        b.list.viewTreeObserver.addOnScrollChangedListener {
+            vish(b.tbShadow, b.list.computeVerticalScrollOffset() > 0)
+        }
     }
 
     val smsPerm = Manifest.permission.READ_SMS
+    val conPerm = Manifest.permission.READ_CONTACTS
     val reqSmsPerm = 666
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String?>, grantResults: IntArray
@@ -67,10 +76,15 @@ class Main : AppCompatActivity() {
     }
 
 
-    fun arrangeList(threads: List<SMS.Thread>? = model.threads.value) {
-        if (threads != null) b.list.adapter = ThreadAdap(threads)
+    fun arrangeList(
+        threads: List<SMS.Thread>? = m.threads.value, contacts: List<Contact>? = m.contacts.value
+    ) {
+        if (threads != null) {
+            Collections.sort(threads, SMS.Thread.Sort())
+            b.list.adapter = ThreadAdap(threads, contacts)
+        }
     }
 
 
-    enum class Work { THREADS, VIEW_THREAD }
+    enum class Work { THREADS, VIEW_THREAD, CONTACTS }
 }

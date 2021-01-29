@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/default_contact_1" />
+        </shape>
+    </item>
+    <item
+        android:bottom="55px"
+        android:drawable="@drawable/default_user_person_1"
+        android:left="55px"
+        android:right="55px"
+        android:top="55px" />
+</layer-list>

@@ -15,8 +15,8 @@
     <color name="TP">#00000000</color>
     <color name="shadow_1">#55000000</color>
     <color name="nav_back_1">@color/CP</color>
-    <color name="listBG1">@color/CSV</color>
-    <color name="toolbar">@color/CS</color>
+    <color name="listBG1">?android:attr/windowBackground</color>
+    <color name="default_contact_1">@color/CP</color>
 
     <!-- Main -->
     <color name="threadTV">@color/CPV</color>
