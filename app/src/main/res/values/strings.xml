@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SMS Exporter</string>
+    <string name="app_name">Telephony Exporter</string>
 
     <!-- GLOBAL -->
     <string-array name="week"><!-- Weeks start with Sunday(1) in Android!-->
@@ -52,4 +52,6 @@
     <string name="exportToPdf">To PDF document</string>
     <string name="exportToJson">To JSON file (not human-readable)</string>
     <string name="whereExport">Where to export?</string>
+    <string name="exportDone">DONE</string>
+    <string name="exportFailed">Failed!</string>
 </resources>

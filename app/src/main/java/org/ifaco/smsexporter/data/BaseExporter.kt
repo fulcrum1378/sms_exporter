@@ -8,12 +8,12 @@ import java.io.FileOutputStream
 import java.lang.StringBuilder
 
 open class BaseExporter(val thread: SMS.Thread, val contact: Contact?, val where: Uri) : Thread() {
-    var ink: StringBuilder = StringBuilder()
+    var digital: ByteArray? = null
 
     override fun run() {
         c.contentResolver.openFileDescriptor(where, "w")?.use {
             FileOutputStream(it.fileDescriptor).use { fos ->
-                fos.write(ink.toString().toByteArray())
+                fos.write(digital)
             }
         }
     }

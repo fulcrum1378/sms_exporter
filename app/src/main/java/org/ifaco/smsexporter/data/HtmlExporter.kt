@@ -4,10 +4,12 @@ import android.net.Uri
 import org.ifaco.smsexporter.Fun
 import org.ifaco.smsexporter.R
 import org.ifaco.smsexporter.etc.SolarHijri
+import java.lang.StringBuilder
 import java.util.*
 
 class HtmlExporter(thread: SMS.Thread, contact: Contact?, where: Uri) :
     BaseExporter(thread, contact, where) {
+    var ink: StringBuilder = StringBuilder()
     val cp = "#00A375"
     val cpv = "#007755"
     val cs = "#EEE"
@@ -21,9 +23,20 @@ html, body {
     padding: 0;
     font-family: Roboto, Arial, Sans-serif;
 }
+#contact {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $cp;
+    color: #FFF;
+    padding: 12px 0;
+    font-size: 18px;
+    text-align: center;
+}
 #main {
     width: 950px;
-    padding: 30px 10px 35px 10px;
+    padding: 50px 10px 35px 10px;
 }
 .message {
     width: 100%;
@@ -70,15 +83,15 @@ html, body {
 }
 #copyright {
     color: #777;
-    margin-top: 55px;
-    font-size: 16px;
+    margin-top: 45px;
+    font-size: 14px;
     font-style: italic;
 }
 
 @media only screen and (max-width: 950px) {
     #main {
         width: calc(100% - 50px);
-        padding: 23px 0 25px 0;
+        padding: 45px 0 25px 0;
     }
 }
 
@@ -103,6 +116,9 @@ $css
 
 <body>
   <center>
+    <div id="contact">
+      ${contact?.name ?: thread.address}${if (contact != null) " (${thread.address})" else ""}
+    </div>
     <div id="main">
 """
         )
@@ -168,6 +184,7 @@ $css
 </body>
 </html>"""
         )
+        digital = ink.toString().toByteArray()
         super.run()
         done(1)
     }

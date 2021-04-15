@@ -52,4 +52,6 @@
     <string name="exportToPdf">در فایل پی دی اف</string>
     <string name="exportToJson">به فایل جیسون (ناخوانا)</string>
     <string name="whereExport">پوشه محل استخراج را انتخاب کنید</string>
+    <string name="exportDone">انجام شد</string>
+    <string name="exportFailed">خطا در استخراج!</string>
 </resources>

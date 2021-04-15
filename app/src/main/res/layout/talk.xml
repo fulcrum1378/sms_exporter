@@ -14,7 +14,9 @@
             style="@style/tbNav"
             android:src="@drawable/nav_back_1" />
 
-        <TextView style="@style/tbTitle" />
+        <TextView
+            android:id="@+id/tbTitle"
+            style="@style/tbTitle" />
 
         <ImageView
             android:id="@+id/tbAction"

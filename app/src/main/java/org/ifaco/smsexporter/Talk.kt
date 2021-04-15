@@ -1,8 +1,8 @@
 package org.ifaco.smsexporter
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,6 +10,8 @@ import android.os.Message
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
@@ -28,13 +30,13 @@ class Talk : AppCompatActivity() {
     lateinit var b: TalkBinding
     lateinit var m: Model
     lateinit var thread: SMS.Thread
+    lateinit var exporter: ActivityResultLauncher<Intent>
     var contact: Contact? = null
     var dialogue: AlertDialog? = null
 
     companion object {
         lateinit var handler: Handler
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +55,7 @@ class Talk : AppCompatActivity() {
             onBackPressed(); return; }
         if (m.contacts.value != null)
             contact = Contact.findContactByPhone(m.contacts.value!!, thread.address)
+        b.tbTitle.text = if (contact != null) contact!!.name else thread.address
         Collections.sort(thread.list, SMS.Sort())
         b.list.adapter = SmsAdap(thread.list)
         b.list.scrollToPosition(thread.list.size - 1)
@@ -64,9 +67,10 @@ class Talk : AppCompatActivity() {
         handler = object : Handler(Looper.getMainLooper()) {
             override fun handleMessage(msg: Message) {
                 when (msg.what) {
-                    Work.EXPORTED.ordinal -> {
-                        Toast.makeText(c, "${msg.obj}", Toast.LENGTH_LONG).show()
-                    }
+                    Work.EXPORTED.ordinal -> Toast.makeText(
+                        c, if (msg.obj as Int == 1) R.string.exportDone else R.string.exportFailed,
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         }
@@ -75,15 +79,15 @@ class Talk : AppCompatActivity() {
         b.tbNav.setOnClickListener { onBackPressed() }
         if (night) b.tbAction.colorFilter = filter(R.color.CP)
         b.tbAction.setOnClickListener { howExport() }
-    }
 
-    override fun onActivityResult(req: Int, res: Int, intent: Intent?) {
-        super.onActivityResult(req, res, intent)
-        when (req) {
-            reqFolder -> {
-                dialogue?.cancel()
-                if (res == RESULT_OK && intent != null && intent.data != null)
-                    export(where = intent.data!!) else dialogue?.cancel()
+        // ActivityResultLaunchers
+        exporter = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode != Activity.RESULT_OK) return@registerForActivityResult
+            dialogue?.cancel()
+            when (this.how) {
+                Type.HTML -> HtmlExporter(thread, contact, it.data!!.data!!).start()
+                Type.PDF -> PdfExporter(thread, contact, it.data!!.data!!).start()
+                Type.JSON -> JsonExporter(thread, contact, it.data!!.data!!).start()
             }
         }
     }
@@ -97,30 +101,20 @@ class Talk : AppCompatActivity() {
         setMessage(R.string.howExport)
         setView(
             (LayoutInflater.from(c).inflate(R.layout.export_methods, null) as LinearLayout)
-                .apply { for (i in 0 until childCount) this[i].setOnClickListener { whereExport(i) } })
+                .apply { for (i in 0 until childCount) this[i].setOnClickListener { export(i) } })
         dialogue = create()
         dialogue!!.show()
     }
 
-    val reqFolder = 666
     var how = Type.HTML
-    fun whereExport(how: Int) {
+    fun export(how: Int) {
         this.how = Type.values()[how]
-        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+        exporter.launch(Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
             type = mimeType(this@Talk.how)
             val name = "Exported ${contact?.name ?: thread.address}.${fileType(this@Talk.how)}"
             putExtra(Intent.EXTRA_TITLE, name)
-        }
-        startActivityForResult(intent, reqFolder)
-    }
-
-    fun export(how: Type = this.how, where: Uri) {
-        when (how) {
-            Type.HTML -> HtmlExporter(thread, contact, where).start()
-            Type.PDF -> PdfExporter(thread, contact, where).start()
-            Type.JSON -> JsonExporter(thread, contact, where).start()
-        }
+        })
     }
 
     fun fileType(how: Type) = when (how) {
