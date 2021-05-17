@@ -46,7 +46,8 @@ class Main : AppCompatActivity() {
                         m.viewThread.value = msg.obj as String?
                         startActivity(Intent(this@Main, Talk::class.java))
                     }
-                    Work.CONTACTS.ordinal -> m.contacts.value = msg.obj as List<Contact>?
+                    Work.CONTACTS.ordinal -> if (msg.obj !is String)
+                        m.contacts.value = msg.obj as List<Contact>?
                 }
             }
         }

@@ -1,5 +1,6 @@
 package org.ifaco.smsexporter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -18,6 +19,7 @@ import java.util.*
 
 class Fun {
     companion object {
+        @SuppressLint("StaticFieldLeak")
         lateinit var c: Context
         val calendar = CalendarType.SOLAR_HIJRI
         var night = false

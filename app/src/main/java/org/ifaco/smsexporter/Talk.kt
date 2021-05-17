@@ -126,7 +126,7 @@ class Talk : AppCompatActivity() {
     fun mimeType(how: Type) = when (how) {
         Type.HTML -> "text/html"
         Type.PDF -> "application/pdf"
-        Type.JSON -> "json"///
+        Type.JSON -> "application/json"
     }
 
 

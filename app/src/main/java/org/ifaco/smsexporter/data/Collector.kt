@@ -32,8 +32,6 @@ class Collector(val that: AppCompatActivity) : Thread() {
                 if (!map1.containsKey(key)) map1[key] = arrayListOf()
                 var date = col(it, "date")
                 var type = col(it, "type")
-                if (type != "1" && type != "2")
-                    throw  IllegalStateException("MAHDI: It's unknown whose SMS is this!!!")
                 var fromMe = type == "2"
                 map1[key] = map1[key]!!.apply {
                     add(SMS(date?.toLong(), fromMe, col(it, "body"), col(it, "error_code")))
@@ -52,7 +50,8 @@ class Collector(val that: AppCompatActivity) : Thread() {
         that.contentResolver.query(
             ContactsContract.Data.CONTENT_URI,
             arrayOf("display_name", "data1", "photo_uri"),
-            "account_type='com.google' AND (data1 LIKE '+%' OR data1 LIKE '0%') AND has_phone_number='1'",
+            "(data1 LIKE '+%' OR data1 LIKE '0%') AND has_phone_number='1'",
+            // account_type='com.google' AND
             null,
             "sort_key_alt"
         )?.let {
