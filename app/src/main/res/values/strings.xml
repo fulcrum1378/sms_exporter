@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Telephony Exporter</string>
+    <string name="app_name">SMS Exporter</string>
 
     <!-- GLOBAL -->
     <string-array name="week"><!-- Weeks start with Sunday(1) in Android!-->

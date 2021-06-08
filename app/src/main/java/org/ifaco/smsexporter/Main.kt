@@ -19,7 +19,7 @@ import org.ifaco.smsexporter.data.SMS
 import org.ifaco.smsexporter.databinding.MainBinding
 import java.util.*
 
-// adb connect 192.168.1.8:
+// adb connect 192.168.1.5:
 
 class Main : AppCompatActivity() {
     lateinit var b: MainBinding
