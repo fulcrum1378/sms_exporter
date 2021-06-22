@@ -1,4 +1,4 @@
-package org.ifaco.smsexporter.adap
+package com.mahdiparastesh.smsexporter.adap
 
 import android.net.Uri
 import android.os.Build
@@ -10,14 +10,14 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
-import org.ifaco.smsexporter.Fun
-import org.ifaco.smsexporter.Fun.Companion.c
-import org.ifaco.smsexporter.Fun.Companion.vish
-import org.ifaco.smsexporter.Main
-import org.ifaco.smsexporter.Main.Companion.handler
-import org.ifaco.smsexporter.R
-import org.ifaco.smsexporter.data.Contact
-import org.ifaco.smsexporter.data.SMS
+import com.mahdiparastesh.smsexporter.Fun
+import com.mahdiparastesh.smsexporter.Fun.Companion.c
+import com.mahdiparastesh.smsexporter.Fun.Companion.vish
+import com.mahdiparastesh.smsexporter.Main
+import com.mahdiparastesh.smsexporter.Main.Companion.handler
+import com.mahdiparastesh.smsexporter.R
+import com.mahdiparastesh.smsexporter.data.Contact
+import com.mahdiparastesh.smsexporter.data.SMS
 import java.io.File
 
 class ThreadAdap(val list: List<SMS.Thread>, val contacts: List<Contact>?) :

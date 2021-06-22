@@ -1,4 +1,4 @@
-package org.ifaco.smsexporter
+package com.mahdiparastesh.smsexporter
 
 import android.Manifest
 import android.content.Intent
@@ -10,16 +10,16 @@ import android.os.Message
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
-import org.ifaco.smsexporter.Fun.Companion.night
-import org.ifaco.smsexporter.Fun.Companion.vish
-import org.ifaco.smsexporter.adap.ThreadAdap
-import org.ifaco.smsexporter.data.Collector
-import org.ifaco.smsexporter.data.Contact
-import org.ifaco.smsexporter.data.SMS
-import org.ifaco.smsexporter.databinding.MainBinding
+import com.mahdiparastesh.smsexporter.Fun.Companion.night
+import com.mahdiparastesh.smsexporter.Fun.Companion.vish
+import com.mahdiparastesh.smsexporter.adap.ThreadAdap
+import com.mahdiparastesh.smsexporter.data.Collector
+import com.mahdiparastesh.smsexporter.data.Contact
+import com.mahdiparastesh.smsexporter.data.SMS
+import com.mahdiparastesh.smsexporter.databinding.MainBinding
 import java.util.*
 
-// adb connect 192.168.1.5:
+// adb connect 192.168.1.20:
 
 class Main : AppCompatActivity() {
     lateinit var b: MainBinding

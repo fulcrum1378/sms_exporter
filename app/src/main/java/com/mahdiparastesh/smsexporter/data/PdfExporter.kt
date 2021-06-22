@@ -1,10 +1,10 @@
-package org.ifaco.smsexporter.data
+package com.mahdiparastesh.smsexporter.data
 
 import android.graphics.pdf.PdfDocument
 import android.net.Uri
 import android.widget.ImageView
-import org.ifaco.smsexporter.Fun.Companion.c
-import org.ifaco.smsexporter.R
+import com.mahdiparastesh.smsexporter.Fun.Companion.c
+import com.mahdiparastesh.smsexporter.R
 import java.io.FileOutputStream
 
 class PdfExporter(thread: SMS.Thread, contact: Contact?, where: Uri) :

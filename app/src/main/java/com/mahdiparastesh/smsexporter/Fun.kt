@@ -1,4 +1,4 @@
-package org.ifaco.smsexporter
+package com.mahdiparastesh.smsexporter
 
 import android.annotation.SuppressLint
 import android.content.Context

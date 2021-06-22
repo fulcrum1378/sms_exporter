@@ -1,4 +1,4 @@
-package org.ifaco.smsexporter
+package com.mahdiparastesh.smsexporter
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -16,14 +16,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
-import org.ifaco.smsexporter.Fun.Companion.c
-import org.ifaco.smsexporter.Fun.Companion.drawable
-import org.ifaco.smsexporter.Fun.Companion.filter
-import org.ifaco.smsexporter.Fun.Companion.night
-import org.ifaco.smsexporter.Fun.Companion.vish
-import org.ifaco.smsexporter.adap.SmsAdap
-import org.ifaco.smsexporter.data.*
-import org.ifaco.smsexporter.databinding.TalkBinding
+import com.mahdiparastesh.smsexporter.Fun.Companion.c
+import com.mahdiparastesh.smsexporter.Fun.Companion.drawable
+import com.mahdiparastesh.smsexporter.Fun.Companion.filter
+import com.mahdiparastesh.smsexporter.Fun.Companion.night
+import com.mahdiparastesh.smsexporter.Fun.Companion.vish
+import com.mahdiparastesh.smsexporter.adap.SmsAdap
+import com.mahdiparastesh.smsexporter.data.*
+import com.mahdiparastesh.smsexporter.databinding.TalkBinding
 import java.util.*
 
 class Talk : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package org.ifaco.smsexporter.etc;
+package com.mahdiparastesh.smsexporter.etc;
 
 import java.util.Calendar;
 

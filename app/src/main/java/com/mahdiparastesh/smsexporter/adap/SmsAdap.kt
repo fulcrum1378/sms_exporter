@@ -1,4 +1,4 @@
-package org.ifaco.smsexporter.adap
+package com.mahdiparastesh.smsexporter.adap
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,14 +7,14 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
-import org.ifaco.smsexporter.Fun
-import org.ifaco.smsexporter.Fun.Companion.c
-import org.ifaco.smsexporter.Fun.Companion.calendar
-import org.ifaco.smsexporter.Fun.Companion.color
-import org.ifaco.smsexporter.Fun.Companion.vis
-import org.ifaco.smsexporter.R
-import org.ifaco.smsexporter.data.SMS
-import org.ifaco.smsexporter.etc.SolarHijri
+import com.mahdiparastesh.smsexporter.Fun
+import com.mahdiparastesh.smsexporter.Fun.Companion.c
+import com.mahdiparastesh.smsexporter.Fun.Companion.calendar
+import com.mahdiparastesh.smsexporter.Fun.Companion.color
+import com.mahdiparastesh.smsexporter.Fun.Companion.vis
+import com.mahdiparastesh.smsexporter.R
+import com.mahdiparastesh.smsexporter.data.SMS
+import com.mahdiparastesh.smsexporter.etc.SolarHijri
 import java.util.*
 
 class SmsAdap(val list: List<SMS>) : RecyclerView.Adapter<SmsAdap.MyViewHolder>() {

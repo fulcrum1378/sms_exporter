@@ -1,4 +1,4 @@
-package org.ifaco.smsexporter.data
+package com.mahdiparastesh.smsexporter.data
 
 import java.util.*
 

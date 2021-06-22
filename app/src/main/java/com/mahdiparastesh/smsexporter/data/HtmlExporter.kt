@@ -1,9 +1,9 @@
-package org.ifaco.smsexporter.data
+package com.mahdiparastesh.smsexporter.data
 
 import android.net.Uri
-import org.ifaco.smsexporter.Fun
-import org.ifaco.smsexporter.R
-import org.ifaco.smsexporter.etc.SolarHijri
+import com.mahdiparastesh.smsexporter.Fun
+import com.mahdiparastesh.smsexporter.R
+import com.mahdiparastesh.smsexporter.etc.SolarHijri
 import java.lang.StringBuilder
 import java.util.*
 

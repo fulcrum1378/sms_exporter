@@ -1,10 +1,10 @@
-package org.ifaco.smsexporter
+package com.mahdiparastesh.smsexporter
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import org.ifaco.smsexporter.data.Contact
-import org.ifaco.smsexporter.data.SMS
+import com.mahdiparastesh.smsexporter.data.Contact
+import com.mahdiparastesh.smsexporter.data.SMS
 
 class Model : ViewModel() {
     val threads: MutableLiveData<List<SMS.Thread>?> by lazy { MutableLiveData<List<SMS.Thread>?>() }

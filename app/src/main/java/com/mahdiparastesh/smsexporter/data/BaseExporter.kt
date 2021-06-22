@@ -1,11 +1,10 @@
-package org.ifaco.smsexporter.data
+package com.mahdiparastesh.smsexporter.data
 
 import android.net.Uri
-import org.ifaco.smsexporter.Fun.Companion.c
-import org.ifaco.smsexporter.Talk
-import org.ifaco.smsexporter.Talk.Companion.handler
+import com.mahdiparastesh.smsexporter.Fun.Companion.c
+import com.mahdiparastesh.smsexporter.Talk
+import com.mahdiparastesh.smsexporter.Talk.Companion.handler
 import java.io.FileOutputStream
-import java.lang.StringBuilder
 
 open class BaseExporter(val thread: SMS.Thread, val contact: Contact?, val where: Uri) : Thread() {
     var digital: ByteArray? = null

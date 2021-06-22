@@ -1,4 +1,4 @@
-package org.ifaco.smsexporter.data
+package com.mahdiparastesh.smsexporter.data
 
 import android.annotation.SuppressLint
 import android.database.Cursor
@@ -6,9 +6,9 @@ import android.provider.ContactsContract
 import android.provider.Telephony
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.database.getStringOrNull
-import org.ifaco.smsexporter.Fun.Companion.replaceAll
-import org.ifaco.smsexporter.Main
-import org.ifaco.smsexporter.Main.Companion.handler
+import com.mahdiparastesh.smsexporter.Fun.Companion.replaceAll
+import com.mahdiparastesh.smsexporter.Main
+import com.mahdiparastesh.smsexporter.Main.Companion.handler
 
 class Collector(val that: AppCompatActivity) : Thread() {
     @SuppressLint("Recycle", "SetTextI18n")

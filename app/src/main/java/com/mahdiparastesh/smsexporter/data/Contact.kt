@@ -1,4 +1,4 @@
-package org.ifaco.smsexporter.data
+package com.mahdiparastesh.smsexporter.data
 
 data class Contact(
     var name: String,
