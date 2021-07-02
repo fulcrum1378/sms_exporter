@@ -89,6 +89,8 @@ class Fun {
 
         fun filter(color: Int) =
             PorterDuffColorFilter(ContextCompat.getColor(c, color), PorterDuff.Mode.SRC_IN)
+
+        fun z(s: String) = if (s.length < 2) "0$s" else s
     }
 
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">آرشیوکننده پیامک</string>
+    <string name="app_name">استخراجگر پیامک ها</string>
 
     <!-- GLOBAL -->
     <string-array name="week"><!-- Weeks start with Sunday(1) in Android!-->
@@ -45,7 +45,7 @@
 
     <!-- Talk -->
     <string name="smsDate">%1$s, %2$d %3$s %4$d</string>
-    <string name="smsTime">%1$d:%2$d</string>
+    <string name="smsTime">%1$s:%2$s</string>
     <string name="export">استخراج</string>
     <string name="howExport">شیوه استخراج را انتخاب کنید:</string>
     <string name="exportToHtml">در فایل اچ تی ام ال</string>
