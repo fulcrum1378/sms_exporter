@@ -47,13 +47,7 @@ class SmsAdap(val list: List<SMS>) : RecyclerView.Adapter<SmsAdap.MyViewHolder>(
             val time = cl[2] as TextView
 
             // Layout
-            val loLP =
-                if (cl.layoutParams != null) cl.layoutParams as ViewGroup.MarginLayoutParams
-                else ViewGroup.MarginLayoutParams(
-                    ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
-                    )
-                )
+            val loLP = cl.layoutParams as ViewGroup.MarginLayoutParams
             loLP.apply {
                 setMargins(
                     leftMargin, if (i != 0) 0

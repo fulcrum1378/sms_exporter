@@ -8,7 +8,9 @@ import android.util.Size
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.get
 import com.mahdiparastesh.smsexporter.Fun.Companion.c
 import com.mahdiparastesh.smsexporter.R
 import com.mahdiparastesh.smsexporter.adap.SmsAdap
@@ -49,12 +51,17 @@ class PdfExporter(thread: SMS.Thread, contact: Contact?, where: Uri) :
             do {
                 addView((LayoutInflater.from(c)
                     .inflate(R.layout.item_sms, this, false) as ConstraintLayout).apply {
+                    (this[0] as TextView).id = View.generateViewId()
                     SmsAdap.prepare(thread.list, this, iMess)
                 })
                 measure( // ESSENTIAL BOTH FOR draw() and measuredHeight
                     View.MeasureSpec.makeMeasureSpec(canvas.width, View.MeasureSpec.EXACTLY),
                     View.MeasureSpec.makeMeasureSpec(canvas.height, View.MeasureSpec.AT_MOST)
                 )
+                if (measuredHeight >= size.height) {
+                    removeViewAt(childCount - 1)
+                    break
+                }
                 iMess++
             } while (measuredHeight < size.height && iMess < thread.list.size)
             layout(0, 0, canvas.width, canvas.height)
