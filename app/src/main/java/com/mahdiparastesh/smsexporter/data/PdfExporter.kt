@@ -8,7 +8,6 @@ import android.util.Size
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.mahdiparastesh.smsexporter.Fun.Companion.c
 import com.mahdiparastesh.smsexporter.R
@@ -34,27 +33,6 @@ class PdfExporter(thread: SMS.Thread, contact: Contact?, where: Uri) :
             page++
         }
 
-
-        /*val ll = LinearLayout(c).apply {
-            orientation = LinearLayout.VERTICAL
-            for (x in 0 until 10) addView(TextView(c).also { v ->
-                v.text = "Salam $x"
-            })
-        }
-        document.startPage(
-            PdfDocument.PageInfo.Builder(size.width, size.height, 1).create()
-        ).apply {
-            canvas.scale(1f, 1f)
-            ll.measure( // ESSENTIAL
-                View.MeasureSpec.makeMeasureSpec(canvas.width, View.MeasureSpec.AT_MOST),
-                View.MeasureSpec.makeMeasureSpec(canvas.height, View.MeasureSpec.AT_MOST)
-            )
-            throw IllegalAccessError("${ll.measuredHeight}")
-            ll.layout(0, 0, canvas.width, canvas.height)
-            ll.draw(canvas)
-            document.finishPage(this)
-        }*/
-
         c.contentResolver.openFileDescriptor(where, "w")?.use {
             FileOutputStream(it.fileDescriptor).use { fos ->
                 document.writeTo(fos)
@@ -72,11 +50,9 @@ class PdfExporter(thread: SMS.Thread, contact: Contact?, where: Uri) :
                 addView((LayoutInflater.from(c)
                     .inflate(R.layout.item_sms, this, false) as ConstraintLayout).apply {
                     SmsAdap.prepare(thread.list, this, iMess)
-                    // FIX THE VIEW
                 })
-                //for (x in 0 until 100) addView(TextView(c).apply { text = "Salam - $iMess" })
                 measure( // ESSENTIAL BOTH FOR draw() and measuredHeight
-                    View.MeasureSpec.makeMeasureSpec(canvas.width, View.MeasureSpec.AT_MOST),
+                    View.MeasureSpec.makeMeasureSpec(canvas.width, View.MeasureSpec.EXACTLY),
                     View.MeasureSpec.makeMeasureSpec(canvas.height, View.MeasureSpec.AT_MOST)
                 )
                 iMess++
